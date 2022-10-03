@@ -1,10 +1,9 @@
 <h1>Here is the list of users</h1>
 <% @users.each do |user| %>
-    <div>
-        <%= link_to  user.name, user_path(user.id)  %>
-    </div>
-
+  
+    <%= link_to  user.name, user_path(user.id)  %>
     <br>
-<% end %>
+
+    <% end %>
 
 <%= link_to  "Public Recipes", public_recipes_path()  %>
