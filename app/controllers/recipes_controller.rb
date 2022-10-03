@@ -36,4 +36,8 @@ class RecipesController < ApplicationController
     @recipe.destroy
     redirect_to user_recipes_path(@recipe.user_id)
   end
+
+  def public_recipes
+    @recipes = Recipe.where(public: true)
+  end
 end
