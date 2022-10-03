@@ -1,0 +1,12 @@
+<h1>Here is a specific resipe for a given user<h1>
+<div>
+<span><%= @recipe.name  %></span><span> by </span><span><%= @recipe.user.name  %></span>
+<br>
+<br>
+<p><%= @recipe.description %></p>
+</div>
+<div>
+</div>
+<div>
+<%=button_to 'Delete recipe', user_recipe_path(recipe_id: @recipe.id), :method => :delete, data: { confirm: 'Are you sure?' } %>
+</div>
