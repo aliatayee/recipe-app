@@ -48,16 +48,24 @@
           <div id="radius-shape-1" class="absolute rounded-full shadow-lg"></div>
           <div id="radius-shape-2" class="absolute shadow-lg"></div>
           <div class="block rounded-lg shadow-lg bg-glass px-6 py-12 md:px-12">
-  
-          <h1  class="actions text-center">Here is the list of recipes for the specific user:</h1>
-          <h2><%= @user.name %></h2>
-
+          <div class="actions text-center mb-6">
+            <h1>Here is the list of recipes for the user:</h1>
+            <span><%= @user.name %></span>
+          </div>
           <% @recipes.each do |recipe| %>
-            <div class="actions text-center">
 
-            <%= link_to  recipe.name, user_recipe_path(@user, recipe)  %>
+          <div class="actions text-center flex flex-column gap-6 mb-6 border-2 border-black">
+            
+            <div>
+            <%= link_to  recipe.name, user_recipe_path(@user, recipe), class: "mb-6"  %>
+            <%=button_to 'Delete recipe', user_recipe_path(@user, recipe), :method => :delete, data: { confirm: 'Are you sure?' }, class: "border-2 border-black rounded-r" %>
+            </div>
+            
+            <div>
             <%= recipe.description %>
-            </div>          
+            </div>
+            
+          </div>          
 
             <% end %>
             </div>

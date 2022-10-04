@@ -49,11 +49,17 @@
           <div id="radius-shape-2" class="absolute shadow-lg"></div>
           <div class="block rounded-lg shadow-lg bg-glass px-6 py-12 md:px-12">
           
-          <h1  class="actions text-center mb-6">Here is a specific resipe for a given user:</h1>
-          <div class="mb-6">
+           
+          <div class="actions text-center mb-6">
           
-          <%= @recipe.name  %> by <%= @recipe.user.name  %>
+          <%= @recipe.name  %>
           </div>
+          <div>Preparation time</div>
+          <div>Cooking time</div>
+          <div>Steps go here...</div>
+          <%=button_to 'Generate shopping list', user_recipe_path(recipe_id: @recipe.id) %>
+          <%=button_to 'Add ingredient', user_recipe_path(recipe_id: @recipe.id) %>
+
           <div class="actions text-center mb-6">
           <%= @recipe.description %>
           </div>
