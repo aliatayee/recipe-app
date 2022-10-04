@@ -1,5 +1,6 @@
 <% @recipes.each do |recipe| %>
-<%= recipe.name %>
+<%= link_to  recipe.name, user_recipe_path(@user, recipe)  %>
 <%= recipe.description %>
 
 <% end %>
+<%= link_to  "Create new Recipe", new_user_recipe_path(@user)  %>
