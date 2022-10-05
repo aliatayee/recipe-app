@@ -6,6 +6,6 @@ class User < ApplicationRecord
   has_many :recipes
 
   def admin?
-   role == 'admin'
+    role == 'admin'
   end
 end
