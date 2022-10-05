@@ -54,26 +54,28 @@
           
           <%= @recipe.name  %>
           </div>
-          <div>Preparation time</div>
-          <div>Cooking time</div>
-          <div>Steps go here...</div>
+          <%if @recipe.public %>
+          <div class="mb-6">Public</div>
+
+          <% end %>
+
+          <div class="mb-6">Preparation time <%= @recipe.preparation_time  %> hours</div>
+          
+          <div class="mb-6">Cooking time <%= @recipe.cooking_time  %> hours</div>
+          <div class="mb-6">Steps go here...</div>
+
+          <div class="flex flex-row mb-6">
           <%=button_to 'Generate shopping list', user_recipe_path(recipe_id: @recipe.id) %>
           <%=button_to 'Add ingredient', user_recipe_path(recipe_id: @recipe.id) %>
-
-          <div class="actions text-center mb-6">
+          </div>
+          
+          <div class="actions  mb-6">
           <%= @recipe.description %>
           </div>
           <p class="actions text-center><%= @recipe.description %></p>
         </div>
       </div>
     </div>
-  </div>
-  <div class="flex justify-center items-center">
-  <div class="mb-6 lg:mb-0 bg-red-300 relative">
-  <div class="block rounded-lg shadow-lg bg-glass px-1 py-1 md:px-1">
-  <div class="actions text-center red-300">
-  <%=button_to 'Delete recipe', user_recipe_path(recipe_id: @recipe.id), :method => :delete, data: { confirm: 'Are you sure?' } %>
-  </div>
   </div>
   </div>
 </section>

@@ -23,8 +23,5 @@ RSpec.describe Recipe, type: :model do
               It has survived not only five centuries"
       expect(subject).to_not be_valid
     end
-
-
   end
-
 end
