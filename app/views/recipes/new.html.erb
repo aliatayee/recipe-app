@@ -1,6 +1,6 @@
 <div class="block rounded-lg shadow-lg bg-glass px-6 py-12 md:px-12">
   <h1  class="actions text-center mb-6">New Recipe:</h1>
-  <%= form_with model: @recipe, url: user_recipes_path, method: :post,  local: true, scope: :recipe  do |f| %>
+  <%= form_with model: @recipe, url: user_recipes_path, method: :post,  local: true, scope: :recipe,data: { turbo: false }  do |f| %>
     <%= f.text_field :name, autofocus: true, class: "form-control block w-full px-3 py-1.5 mb-6 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", placeholder: "Name" %>
     <%= f.text_field :description, autofocus: true, class: "form-control block w-full px-3 py-1.5 mb-6 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", placeholder: "Description" %>
     <%= f.radio_button :public, true, :value => true, class: "form-control  px-3 py-3 mb-6 text-base font-normal text-gray-700 bg-white bg-clip-padding  transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"%>
