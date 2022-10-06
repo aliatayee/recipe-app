@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recipe App</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application" %>
+    <style>
+      .background-radial-gradient {
+        background-color: hsl(218, 41%, 15%);
+        background-image: radial-gradient(
+          650px circle at 0% 0%,
+          hsl(218, 41%, 35%) 15%,
+          hsl(218, 41%, 30%) 35%,
+          hsl(218, 41%, 20%) 75%,
+          hsl(218, 41%, 19%) 80%,
+          transparent 100%
+        ),
+        radial-gradient(
+          1250px circle at 100% 100%,
+          hsl(218, 41%, 45%) 15%,
+          hsl(218, 41%, 30%) 35%,
+          hsl(218, 41%, 20%) 75%,
+          hsl(218, 41%, 19%) 80%,
+          transparent 100%
+        );
+      }
+
+      .bg-glass {
+        background-color: hsla(0, 0%, 100%, 0.9);
+        backdrop-filter: saturate(300%) blur(25px);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="w-full h-screen background-radial-gradient overflow-hidden">
+        <div class="mx-auto container w-full flex text-left">
+          <% if notice %>
+            <div class="alert bg-yellow-100 rounded-lg py-5 px-6 mb-3 text-base text-yellow-700 inline-flex items-center w-full alert-dismissible fade show" role="alert">
+              <strong class="mr-1">Notice: </strong> <%= notice %>
+              <button type="button" class="btn-close box-content w-4 h-4 p-1 ml-auto text-yellow-900 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-yellow-900 hover:opacity-75 hover:no-underline" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          <%end%>
+          <% if  alert %>
+            <div class="alert bg-yellow-100 rounded-lg py-5 px-6 mb-3 text-base text-yellow-700 inline-flex items-center w-full alert-dismissible fade show" role="alert">
+              <strong class="mr-1">Alert: </strong> <%= alert %>
+              <button type="button" class="btn-close box-content w-4 h-4 p-1 ml-auto text-yellow-900 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-yellow-900 hover:opacity-75 hover:no-underline" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          <%end%>
+        </div>
+        <div class="px-6 py-12 lg:py-24 md:px-12 mt-12 text-center lg:text-left">
+          <div class="container mx-auto xl:px-32 text-gray-800">
+            <div class="flex justify-center items-center">
+              <div class="mb-12 lg:mb-0 relative">
+                <div id="radius-shape-1" class="absolute rounded-full shadow-lg"></div>
+                <div id="radius-shape-2" class="absolute shadow-lg"></div>
+                <%= yield %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
