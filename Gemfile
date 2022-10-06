@@ -46,7 +46,7 @@ gem 'bootsnap', require: false
 gem 'cancancan'
 # Use Sass to process CSS
 # gem "sassc-rails"
-
+ gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 gem 'rubocop', '>= 1.0', '< 2.0'
