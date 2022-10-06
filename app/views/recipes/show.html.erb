@@ -3,7 +3,10 @@
     <%= @recipe.name  %>
   </div>
   <%if @recipe.public %>
-    <div class="mb-6">Public</div>
+    <div class="mb-6">Public Recipe</div>
+  <% else %>
+    <div class="mb-6">Private Recipe</div>
+    
   <% end %>
   <div class="mb-6">Preparation time <%= @recipe.preparation_time  %> hours</div>
   <div class="mb-6">Cooking time <%= @recipe.cooking_time  %> hours</div>
@@ -42,20 +45,24 @@
             </tr>
           </thead>
           <tbody>
-       <% @recipe.foods.each do |food| %>
+       <% @recipe.recipe_foods.each do |recipe| %>
           <tr class="bg-gray-100 border-b">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-              food.name
+              <%= recipe.food.name %>
               </td>
+
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              <%= recipe.quantity %></td>
+
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              <%= recipe.quantity * recipe.food.price %>  
               </td>
-              food.quantity
+              
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-              food.quantity * food.price  
-              </td>
-              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-              <%=button_to 'Modify', user_recipe_path(@user, recipe) %>
-              <%=button_to 'Remove', user_recipe_recipe_food_path(@user, recipe), :method => :delete, data: { confirm: 'Are you sure?' }, class: "border-2 border-black rounded-r" %>
+              <% if current_user.id == recipe.recipe.user_id %>
+
+              <%=button_to 'Remove', user_recipe_recipe_food_path(current_user, @recipe, recipe), :method => :delete, data: { confirm: 'Are you sure?' }, class: " inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" %>
+              <% end %>
 
               </td>
             </tr>
