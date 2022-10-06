@@ -9,6 +9,7 @@
               <th class="py-3 px-6 text-left">Food</th>
               <th class="py-3 px-6 text-left">Unit</th>
               <th class="py-3 px-6 text-center">Price</th>
+              <th class="py-3 px-6 text-center">Quantity</th>
               <th class="py-3 px-6 text-center">Action</th>
             </tr>
           </thead>
@@ -28,6 +29,11 @@
                 <td class="py-3 px-6 text-center">
                   <div class="flex items-center justify-center">
                    $ <%= food.price%>
+                  </div>
+                </td>
+                <td class="py-3 px-6 text-center">
+                  <div class="flex items-center justify-center">
+                 <%= food.quantity%>
                   </div>
                 </td>
                 <td class="py-3 px-6 text-center">
