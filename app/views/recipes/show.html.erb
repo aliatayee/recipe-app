@@ -3,17 +3,74 @@
     <%= @recipe.name  %>
   </div>
   <%if @recipe.public %>
-    <div class="mb-6">Public</div>
+    <div class="mb-6">Public Recipe</div>
+  <% else %>
+    <div class="mb-6">Private Recipe</div>
+    
   <% end %>
   <div class="mb-6">Preparation time <%= @recipe.preparation_time  %> hours</div>
   <div class="mb-6">Cooking time <%= @recipe.cooking_time  %> hours</div>
   <div class="mb-6">Steps go here...</div>
   <div class="flex flex-row mb-6">
-    <%=button_to 'Generate shopping list', user_recipe_path(recipe_id: @recipe.id) %>
-    <%=button_to 'Add ingredient', user_recipe_path(recipe_id: @recipe.id) %>
+  <div class="flex gap-6">
+  <%=button_to 'Generate shopping list', user_recipe_path(recipe_id: @recipe.id), class: " inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" %>
+  <%=button_to 'Add ingredient', user_recipe_path(recipe_id: @recipe.id), class: " inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" %>
+  </div>
   </div>
   <div class="actions  mb-6">
     <%= @recipe.description %>
   </div>
-  <p class="actions text-center"><%= @recipe.description %></p>
+</div>
+
+
+<div class="flex flex-col justify-center mt-6 mb-12">
+  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full">
+          <thead class="bg-white border-b">
+            <tr>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Food
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Quantity
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Value
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+       <% @recipe.recipe_foods.each do |recipe| %>
+          <tr class="bg-gray-100 border-b">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+              <%= recipe.food.name %>
+              </td>
+
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              <%= recipe.quantity %></td>
+
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              <%= recipe.quantity * recipe.food.price %>  
+              </td>
+              
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              <% if current_user.id == recipe.recipe.user_id %>
+
+              <%=button_to 'Remove', user_recipe_recipe_food_path(current_user, @recipe, recipe), :method => :delete, data: { confirm: 'Are you sure?' }, class: " inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" %>
+              <% end %>
+
+              </td>
+            </tr>
+      <% end %>
+           
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
