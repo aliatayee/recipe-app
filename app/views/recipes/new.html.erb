@@ -1,19 +1,41 @@
-<div class="block rounded-lg shadow-lg bg-glass px-6 py-12 md:px-12">
-  <h1  class="actions text-center mb-6">New Recipe:</h1>
-  <%= form_with model: @recipe, url: user_recipes_path, method: :post,  local: true, scope: :recipe,data: { turbo: false }  do |f| %>
-    <%= f.text_field :name, autofocus: true, class: "form-control block w-full px-3 py-1.5 mb-6 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", placeholder: "Name" %>
-    <%= f.text_field :description, autofocus: true, class: "form-control block w-full px-3 py-1.5 mb-6 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", placeholder: "Description" %>
-    <%= label :preparation_time, "Preparation time", class: "form-control  px-3 py-1 mb-6  text-gray-700 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"  %>
-    <%= f.number_field :preparation_time, step: 0.1, autofocus: true, class: "form-control block w-full px-3 py-1.5 mb-6 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", placeholder: "Preparation time" %>
-    <%= label :cooking_time, "Cooking time", class: "form-control  px-3 py-1 mb-6  text-gray-700 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"  %>
-    <%= f.number_field :cooking_time, step: 0.1, autofocus: true, class: "form-control block w-full px-3 py-1.5 mb-6 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", placeholder: "Cooking time" %>
-    <%= label :public, "Public", value: true, class: "form-control  px-3 py-1 mb-6  text-gray-700 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"  %>
-    <%= f.radio_button :public, true, :value => true, class: "form-control  px-3 py-3 mb-6 text-base font-normal text-gray-700 bg-white bg-clip-padding  transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"%>
-    <%= label :public, "True", value: true, class: "form-control  px-3 py-1 mb-6  text-gray-700 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"  %>
-    <%= f.radio_button :public, false, :checked => true, :value => false, class: "form-control  px-3 py-3 mb-6 text-base font-normal text-gray-700 bg-white bg-clip-padding  transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" %>
-    <%= label :public, "False", value: false, class: "form-control  px-3 py-1 mb-6  text-gray-700 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"  %>
-    <div class="actions">
-      <%= f.submit "Create Recipe", class: "inline-block px-6 py-2.5 mb-6 w-full bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" %>
+<div class="mt-8">
+  <div class="min-w-screen flex pt-1 justify-center font-sans overflow-hidden">
+    <div class="block rounded-lg shadow-lg bg-white px-6 py-8 md:px-12 lg:w-1/2 h-full mb-5 ">
+      <h2 class="">Add New Recipe</h2>
+      <%= form_with model: @recipe, url: user_recipes_path, method: :post,  local: true, scope: :recipe,data: { turbo: false }  do |form| %>
+        <div class="relative ">
+          <%= form.label :name, class: "leading-7 text-sm text-gray-400" %>
+          <%= form.text_field :name, autofocus: true,class: "form-control block w-full px-3 py-1.5 mb-4 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" %>
+        </div>
+        <div class="relative ">
+          <%= form.label :description, class: "leading-7 text-sm text-gray-400" %>
+          <%= form.text_field :description, autofocus: true,class: "form-control block w-full px-3 py-1.5 mb-4 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" %>
+        </div>
+        <div class="relative ">
+          <%= form.label :preparation_time, class: "leading-7 text-sm text-gray-400" %>
+          <%= form.number_field :preparation_time, step: 0.1, autofocus: true,class: "form-control block w-full px-3 py-1.5 mb-4 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"  %>
+        </div>
+        <div class="relative ">
+          <%= form.label :cooking_time, class: "leading-7 text-sm text-gray-400" %>
+          <%= form.number_field :cooking_time, step: 0.1, autofocus: true,  class: "form-control block w-full px-3 py-1.5 mb-4 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"  %>
+        </div>
+        <div class="relative ">
+          <div class="flex items-center mb-4 ">
+            <%= form.label :public, class: "leading-7 text-sm text-gray-400 mr-5" %>
+            <%= form.radio_button :public, true, :value => true, id:"country-option-2", class:"h-4 w-4 border-gray-300 focus:ring-2 focus:ring-blue-300"%>
+            <%= label :public, "True", value: true, :checked => true, class:"mr-3 text-sm font-medium text-gray-900 ml-2 block"%>
+            <%= form.radio_button :public, false, :value => false, id:"country-option-2", class:"h-4 w-4 border-gray-300 focus:ring-2 focus:ring-blue-300"%>
+            <%= label :public, "False", value: false, class:"text-sm font-medium text-gray-900 ml-2 block"%>
+          </div>
+        </div>
+        <div class="actions flex justify-between">
+          <%= form.submit "Save", class: " px-6 py-2.5 mb-6 w-1/3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" %>
+          <%= link_to 'Back', url_for(:back), class: "text-center px-6 py-2.5 mb-6 w-1/3 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" %>
+        </div>
+      <% end %>
     </div>
+  </div>
+  <% if flash[:notice] %>
+    <div class="alert-pos" id="notice"><%= flash[:notice] %></div>
   <% end %>
 </div>
