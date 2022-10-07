@@ -1,5 +1,4 @@
 class RecipeFoodsController < ApplicationController
- 
   def create
     @recipe = Recipe.find(params[:recipe_id])
 
@@ -34,8 +33,7 @@ class RecipeFoodsController < ApplicationController
 
   def recipe_foods_params
     params
-    .require(:recipe_food)
-    .permit(:food_id, :quantity)
+      .require(:recipe_food)
+      .permit(:food_id, :quantity)
   end
-
 end
