@@ -7,8 +7,9 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@latest/dist/flowbite.min.css" />
     <%= javascript_include_tag "application" %>
-     <%= javascript_importmap_tags %>
+    <%= javascript_importmap_tags %>
   </head>
   <body class=" bg-gray-100">  
     <% if current_user %>
@@ -32,5 +33,7 @@
         </div>
         <%= yield %>
       </main>
+      <script src="https://unpkg.com/flowbite@latest/dist/flowbite.js"></script>
+
   </body>
 </html>
