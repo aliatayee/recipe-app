@@ -23,5 +23,15 @@ RSpec.describe Recipe, type: :model do
               It has survived not only five centuries"
       expect(subject).to_not be_valid
     end
+
+    it 'preparation time should not be blank' do
+      subject.preparation_time = ''
+      expect(subject).to_not be_valid
+    end
+
+    it 'cooking time should not be blank' do
+      subject.cooking_time = ''
+      expect(subject).to_not be_valid
+    end
   end
 end
