@@ -41,4 +41,14 @@ class RecipesController < ApplicationController
   def public_recipes
     @recipes = Recipe.where(public: true)
   end
+
+  def toggle
+    recipe = Recipe.find(params[:id])
+    puts recipe.public
+    recipe.public = !recipe.public
+    recipe.save
+    recipe.public
+    user_recipe_path(current_user, recipe)
+    redirect_back(fallback_location: root_path)
+  end
 end
