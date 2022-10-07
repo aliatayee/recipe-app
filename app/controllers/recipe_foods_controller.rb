@@ -1,14 +1,18 @@
 class RecipeFoodsController < ApplicationController
+ 
   def create
     @recipe = Recipe.find(params[:recipe_id])
-    @recipe_foods = @recipe.recipe_foods.build(recipe_foods_params)
+
+    @recipe_foods = RecipeFood.new(recipe_foods_params)
+    @recipe_foods.recipe = @recipe
+    # @recipe_foods = @recipe.recipe_foods.build(recipe_foods_params)
 
     respond_to do |format|
       format.html do
         if @recipe_foods.save
-          redirect_to user_recipe_path(@recipe.id), notice: 'Ingredient saved successfully'
+          redirect_to user_recipe_path(current_user, @recipe.id), notice: 'Ingredient saved successfully'
         else
-          redirect_to user_recipe_path(@recipe.id), alert: 'Error, Recipe not created!'
+          redirect_to user_recipe_path(current_user, @recipe.id), alert: 'Error, Ingredient not created!'
         end
       end
     end
@@ -30,7 +34,8 @@ class RecipeFoodsController < ApplicationController
 
   def recipe_foods_params
     params
-      .require(:recipe_food)
-      .permit(:quantity, :food_id)
+    .require(:recipe_food)
+    .permit(:food_id, :quantity)
   end
+
 end
