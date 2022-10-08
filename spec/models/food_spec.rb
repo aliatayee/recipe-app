@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Food, type: :model do
   describe 'Tests for Food model validation ' do
     @first_user = User.create(name: 'Ali')
-    subject { Food.new(user: @first_user, name: 'Kabab', measurement_unit:'kg', price:100, quantity: 4) }
+    subject { Food.new(user: @first_user, name: 'Kabab', measurement_unit: 'kg', price: 100, quantity: 4) }
     before { subject.save }
 
     it 'name should be present' do
@@ -34,10 +34,10 @@ RSpec.describe Food, type: :model do
     end
 
     it 'measurment should be kg' do
-      expect(subject.measurement_unit).to eq "kg"
+      expect(subject.measurement_unit).to eq 'kg'
     end
     it 'price should not be nil' do
-        subject.price = nil
+      subject.price = nil
       expect(subject).to_not be_valid
     end
   end
