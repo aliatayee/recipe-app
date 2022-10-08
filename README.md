@@ -61,6 +61,7 @@ To setup and install this sample AlFa Blog project, follow the below steps:
 - GitHub: [@aliatayee](https://github.com/aliatayee)
 - Twitter: [@aqaatayee](https://twitter.com/aqaatayee)
 - LinkedIn: [@aliatayee](https://www.linkedin.com/in/aliatayee/)
+
 👤 **Mustapha**
 
 - GitHub: [@Terbeche](https://github.com/Terbeche)
