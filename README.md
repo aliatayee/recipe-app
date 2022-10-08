@@ -1,6 +1,9 @@
+![](https://img.shields.io/badge/Ali-Atayee-yellow?labelColor=black)&nbsp;![](https://img.shields.io/badge/Mustapha-Terbeche-red?labelColor=blue)&nbsp;
 
 # Recipe App
-Coming soon..
+
+> The Recipe app keeps track of all your recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking the app should allow you to make them public so anyone can access them.
+
 ## Major Technologies
 - [ ] Ruby on Rails
 - [ ] Postgresql
@@ -58,6 +61,11 @@ To setup and install this sample AlFa Blog project, follow the below steps:
 - GitHub: [@aliatayee](https://github.com/aliatayee)
 - Twitter: [@aqaatayee](https://twitter.com/aqaatayee)
 - LinkedIn: [@aliatayee](https://www.linkedin.com/in/aliatayee/)
+
+👤 **Mustapha**
+
+- GitHub: [@Terbeche](https://github.com/Terbeche)
+- LinkedIn: [@Terbeche](https://www.linkedin.com/in/mustapha-terbeche/)
 
 
 ## 🤝 Contributing
